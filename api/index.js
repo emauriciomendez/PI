@@ -1,3 +1,5 @@
+//recibir el servidor y ponerlo a escuchar
+//recibir la conexxion con la base de datos
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88

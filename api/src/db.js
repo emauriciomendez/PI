@@ -1,3 +1,6 @@
+//creara la conexion con la base de dta
+//definir los modelos y relacionarlos
+
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
