@@ -1,0 +1,55 @@
+.container{
+    border: 1px solid gray;
+    background: #74bdbd73;
+    width: 80%;
+    margin: 25px auto;
+    padding: 0 5px 20px;
+    height: 300px;
+}
+.title{
+    background-color: rgba(128, 255, 0, 0.6);
+    color:lime;
+}
+/* .cont1{
+    border: 1px solid orange;
+        margin: auto;
+} */
+.cont2{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    justify-content: center;
+
+}
+.cont2 label{
+    display: flex;
+    justify-self: flex-end;
+    padding-right: 15px;
+}
+.cont2 input, .cont2 select {
+    display: flex;
+    justify-self: flex-start;
+    padding-right: 15px;
+    /* width: 150px; */
+    height: 20px;
+    border:1px solid #bfe0e0;
+    border-bottom-color: orange;
+    background-color: #bfe0e0;
+}
+.inpNum{
+    width: 80px;
+    border-bottom-color: rgba(255, 21, 0, 0.843);
+}
+.inpSelCount{
+    max-height: 100px; 
+}
+.cont2 div{
+    display: flex;
+}
+.contError{
+    height: 20px;
+}
+.spErr{
+    color:coral;
+    font-size: smaller;
+    
+}

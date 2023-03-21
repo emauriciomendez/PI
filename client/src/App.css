@@ -1,7 +1,26 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
 }
-
+.App {
+  text-align: center;  
+   /* background-color: black; */
+   background: url('./components/imagenes/mapamundi-gris.png');
+}
+.title {
+  background-color: rgba(128, 255, 0, 0.539); 
+  height: 80px;  
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.title h1{
+  text-shadow: 2px 2px 2px black;
+  font-size: 55px;
+  color: rgb(255, 21, 0);
+}
+.Cuerpo {
+  min-height: 400px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +54,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: black;
+  color:aliceblue;
 }
