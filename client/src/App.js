@@ -2,6 +2,7 @@ import './App.css';
 import Landing from './views/Landing/Landing';
 import Home from './views/Home/Home.jsx';
 import Detail from './views/Detail/Detail.jsx';
+import Activities from './views/Activities/Activities.jsx';
 import Form from './views/Form/Form.jsx';
 import {  Route, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
@@ -18,7 +19,8 @@ function App() {
       <div className="Cuerpo">
         <Route exact path='/' component={Landing}/>         
         <Route  path="/home" render={ ()=><Home/>} />
-        <Route  path='/detail' component={Detail}/>
+        <Route  path='/detail/:id' render={ ()=><Detail/>}/>
+        <Route path="/activities" ><Activities/></Route>
         <Route path="/form" ><Form/></Route>
       </div>
      <footer className='footer'>Create for Mauricio Méndez</footer>

@@ -28,7 +28,7 @@ const getCountriesApi= async()=>{
 }
 const getCountries= async()=>{
     const countriesAllBd= await Country.findAll()
-    console.log(countriesAllBd);
+   // console.log(countriesAllBd);
     return countriesAllBd
 }
 const getCountryForName= async(name)=>{

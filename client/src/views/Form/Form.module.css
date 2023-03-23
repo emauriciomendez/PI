@@ -1,14 +1,15 @@
 .container{
     border: 1px solid gray;
-    background: #74bdbd73;
+    background:  #f2f2f2a4;
     width: 80%;
     margin: 25px auto;
-    padding: 0 5px 20px;
+    padding: 0 0 20px;
     height: 300px;
 }
 .title{
-    background-color: rgba(128, 255, 0, 0.6);
-    color:lime;
+    background-color:limegreen;
+    color:black;
+    margin-bottom: 20px;
 }
 /* .cont1{
     border: 1px solid orange;
@@ -33,7 +34,7 @@
     height: 20px;
     border:1px solid #bfe0e0;
     border-bottom-color: orange;
-    background-color: #bfe0e0;
+    background-color: #b4b5b5d7;
 }
 .inpNum{
     width: 80px;

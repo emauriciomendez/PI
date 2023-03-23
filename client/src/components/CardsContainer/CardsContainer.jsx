@@ -27,13 +27,13 @@ return(
         {
         countries.map(cont=>{
         return <Card
-        // id= {cont.id}
-        // name={cont.name}
-        // flags={cont.flags}
-        // region={cont.region}
-        // capital={cont.capital}
-        // subregion={cont.subregion}
-        // area={cont.area}
+         id= {cont.id}
+         name={cont.name}
+        flags={cont.flags}
+         region={cont.region}
+        capital={cont.capital}
+         subregion={cont.subregion}
+         area={cont.area}
         population={cont.population}
         
         />

@@ -4,7 +4,7 @@ export function validate(form){
     if(/^[a-zA-Z\s]{1,60}$/.test(form.name)){
         errors.name='';
         }else{
-        errors.name='Hay un error en el Nombre'; 
+        errors.name='Hay un error en el Nombre. Digite solo letras'; 
         if(form.name==='')errors.name='Nombre  vacio 2';
         }
    

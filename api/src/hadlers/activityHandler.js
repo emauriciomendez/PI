@@ -1,7 +1,14 @@
-const {createActivity}=require('../controllers/activitiesController');
+const {createActivity, getActivitiesAll}=require('../controllers/activitiesController');
 
-const getActivitiesHandler=(req,res)=>{
-    res.status(200).send('Obtiene un arreglo de objetos,,, donde cada objeto es una actividad turística')
+const getActivitiesHandler=async(req,res)=>{
+    try {
+        const activitiesAll= await getActivitiesAll();
+        res.status(200).json(activitiesAll)
+        
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+   
 }
 
 const createActivitiesHandler=async(req,res) => {
