@@ -1,16 +1,18 @@
 
-import styles from './NavBar.module.css';
+import st from './NavBar.module.css';
 import {  NavLink } from "react-router-dom";
 import SearchBar from '../SearchBar/SearchBar';
 
 const NavBar=()=>{
     return(
-        <div className={styles.containerNavBar}>
-            <NavLink to ='/home'>Home</NavLink>
-            <NavLink to ='/activities'>Actividades</NavLink>
-            <NavLink to ='/form'>Form</NavLink>
-            
-            <SearchBar/>
+        <div className={st.container}>
+              <ul className={st.menu}>
+                  <li>  <NavLink to ='/home'  className={({isActive}) => (isActive ? st.active:st.disabled)}>Home</NavLink></li>
+                  <li> <NavLink to ='/activities'  className={({isActive}) => (isActive ? st.active:st.disabled)}>Actividades</NavLink></li>
+                  <li>  <NavLink to ='/form'  className={({isActive}) => (isActive ? st.active:st.disabled)}>Form</NavLink></li>
+                    
+                    <SearchBar/>
+                </ul>
         </div>
     )
 }

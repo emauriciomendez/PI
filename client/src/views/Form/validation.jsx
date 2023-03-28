@@ -16,7 +16,7 @@ export function validate(form){
         if(form.difficulty <1 ||form.difficulty >5 )errors.difficulty='El rango es de 1 a 5';
         if(form.difficulty==='')errors.difficulty='No le ha asignado la dificultad';
         }            
-     if(/^\d*\.\d+$/.test(form.duration)){
+     if(/^\d+$/.test(form.duration)){
         errors.duration='';
         }else{
         errors.duration='Solo se puede digitar numeros';
@@ -27,6 +27,10 @@ export function validate(form){
     if(form.season==='-1'){errors.season='Se debe seleccionar una opcion.'
         }else
    { errors.season=''}
+
+   if(form.countries.length===0){errors.countries='Se debe seleccionar una opcion.'
+        }else
+    { errors.countries=''}
 
 return errors;
 }

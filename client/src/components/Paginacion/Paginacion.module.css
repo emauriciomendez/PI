@@ -1,0 +1,63 @@
+.containerPag{
+    /* height: 30px;
+    width: 90%;
+    display: block; */
+    margin: 15px;
+}
+.navPagination{
+    /* border: 1px solid #3a5e14; */
+    margin: auto;
+}
+.linkPagination {
+    display: inline-block;
+    width: 15px;
+    padding: 3px 3px;
+    background-color: whitesmoke;
+    border: 1px solid #2e2e2e52;
+    text-align: center;
+    color: #474646;
+    margin: 3px;
+    border-radius: 4px; 
+    text-decoration:none; 
+    font-size:12px;
+    cursor: pointer;
+    
+}
+.linkPagination:hover{
+    background-color: limegreen;
+    color: #060606;
+}
+
+
+.isCurrent{
+    display: inline-block;
+    width: 15px;
+    padding: 3px 3px;
+   /* // background-color: whitesmoke; */
+    border: 1px solid #2e2e2e52;
+    text-align: center;
+    color: white;
+    margin: 3px;
+    border-radius: 4px; 
+    text-decoration:none; 
+    font-size:12px;
+    background-color: rgb(35, 100, 190);
+}
+.linkPagSig{
+    display: inline-block;
+    width: 55px;
+    padding: 3px 3px;
+    background-color: whitesmoke;
+    border: 1px solid #2e2e2e52;
+    text-align: center;
+    color: #474646;
+    margin: 3px;
+    border-radius: 4px; 
+    text-decoration:none; 
+    font-size:12px;
+     cursor: pointer;
+}
+.linkPagSig:hover{
+    background-color: limegreen;
+    color: #060606;
+}

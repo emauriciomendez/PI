@@ -1,31 +1,22 @@
 import Card from '../Card/Card.jsx';
 import style from './CardsContainer.module.css';
 import {useSelector}  from 'react-redux'
+import Paginacion from '../Paginacion/Paginacion.jsx';
+import { useState } from 'react';
 const CardsContainer=()=>{
-    const countries= useSelector(state=>state.countries)
-// const contries=[{
-// 	"id": "CUB",
-// 	"name": "Cuba",
-// 	"flags": "https://flagcdn.com/cu.svg",
-// 	"region": "Americas",
-// 	"capital": "Havana",
-// 	"subregion": "Caribbean",
-// 	"area": 109884,
-// 	"population": "11326616"
-// },{
-// 	"id": "COL",
-// 	"name": "Colombia",
-// 	"flags": "https://flagcdn.com/co.svg",
-// 	"region": "Americas",
-// 	"capital": "Bogota",
-// 	"subregion": "SurAmerica",
-// 	"area": 9109884,
-// 	"population": "8326616"
-// }]
+    const countries= useSelector(state=>state.countriesView);
+    const [countriesPerPage,setCountriesPerPage]=useState(10);
+    const [pageCurrent,setPageCurrent]=useState(1);
+    let totalCountries=countries.length;
+    let indInicial=(pageCurrent-1)*countriesPerPage;
+    let indFinal= indInicial+countriesPerPage;
+
 return(
+    <>
     <div className={style.container}>
         {
         countries.map(cont=>{
+
         return <Card
          id= {cont.id}
          name={cont.name}
@@ -37,10 +28,17 @@ return(
         population={cont.population}
         
         />
-        })
+        }).slice(indInicial,indFinal)
         } 
-
-    </div>
+           
+    </div> 
+        <Paginacion 
+            totalCountries={totalCountries}
+            countriesPerPage={countriesPerPage}
+            pageCurrent={pageCurrent}
+            setPageCurrent={setPageCurrent}
+            />
+    </>
 )
 }
 export default CardsContainer;

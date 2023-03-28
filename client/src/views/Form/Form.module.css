@@ -4,21 +4,26 @@
     width: 80%;
     margin: 25px auto;
     padding: 0 0 20px;
-    height: 300px;
+    /* height: 300px; */
 }
 .title{
-    background-color:limegreen;
-    color:black;
-    margin-bottom: 20px;
+    background-color: limegreen;
+    text-shadow: 3px 3px 2px #0c0c0c, -1px -1px 0px gray, 1px -1px 0px gray, -1px 1px 0px gray;
+    color: rgb(242, 245, 242);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 3px 1px 1px #6a6969;
 }
-/* .cont1{
-    border: 1px solid orange;
+.cont1{
+    /* border: 1px solid orange; */
         margin: auto;
-} */
+}
 .cont2{
     display: grid;
-    grid-template-columns: 200px 200px;
-    justify-content: center;
+    grid-template-columns: 400px 400px;
+    /* justify-content: center; */
+    align-items: center;
 
 }
 .cont2 label{
@@ -26,15 +31,22 @@
     justify-self: flex-end;
     padding-right: 15px;
 }
+.cont2 span{
+    display: flex;
+    justify-self:first baseline;
+    align-self: center;
+    padding-right: 15px;
+}
 .cont2 input, .cont2 select {
     display: flex;
     justify-self: flex-start;
     padding-right: 15px;
-    /* width: 150px; */
-    height: 20px;
-    border:1px solid #bfe0e0;
-    border-bottom-color: orange;
-    background-color: #b4b5b5d7;
+    font-size: 15px;  
+    height: 30px;
+    border:1px solid #c7c9c9;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
 }
 .inpNum{
     width: 80px;
@@ -50,7 +62,31 @@
     height: 20px;
 }
 .spErr{
-    color:coral;
-    font-size: smaller;
+    color:rgb(245, 21, 21);
+    font-size: small;
     
 }
+.mensajes{
+   color:rgb(245, 21, 21);
+   margin: 10px;
+}
+.mensajesE{
+    color:rgb(19, 185, 19);
+    margin: 10px;
+ }
+ .cont3{
+    /* border: 1px solid rgb(210, 30, 156); */
+    margin: auto;
+    width: 60%;
+ }
+ .botSubmit{
+    color: rgb(243, 250, 244);
+    background-color: rgb(25, 173, 25);
+    /* padding: 5px 15px; */
+    border-radius: 5px;
+    cursor: pointer;
+    /* font-size: 1.0em; */
+    width: 150px;
+    height: 27px;
+
+ }

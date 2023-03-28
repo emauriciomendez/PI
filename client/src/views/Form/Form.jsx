@@ -1,15 +1,24 @@
 import axios from 'axios';
 import { useState } from "react";
-import {validate} from './validation'
-import st from './Form.module.css'
+import {validate} from './validation';
+import Select from 'react-select';
+import st from './Form.module.css';
+import {useSelector} from 'react-redux'
 
 const Form=()=>{
-
+//    const op=[
+//     {label:'pi',value:10},
+//     {label:'pi2',value:11},
+//     {label:'pi3',value:12},
+//     {label:'pi4',value:13},
+//    ]
+    const [mensaje,setMensaje]=useState('');
+    const [mensajeExito,setMensajeExito]=useState('');
     const [form,setForm]=useState({
         name:'',
         difficulty:5,
         duration:1,
-        season:'',
+        season:'-1',
         countries:[]
     })
     
@@ -20,28 +29,67 @@ const Form=()=>{
         season:'',
         countries:''
     })
-    
+    const countries= useSelector(state=>state.countries);
+
     const changeHandler=(e)=>{
+        setMensaje('');
+        setMensajeExito('');
         const property= e.target.name;
         const value= e.target.value;
         setErrors(validate({...form,[property]:value})) 
         setForm({...form,[property]:value})         
     }
-   
-     const submitHandler=(e)=>{ alert('click')
-        e.preventDefault();
-        axios.post("http://localhost:3001/activities/",form)
-        .then(res=>alert(res))
-        .catch(err=>alert(err))       
+    function getOptions(){
+        return countries.map(c=>{
+            return{
+                value: c.id,
+                label: c.name
+            }
+        })
+      }
+     function selCounHandler(e){
+       // console.log(e)
+       const counSel= e.map(pais=> pais.value)
+       setErrors(validate({...form, countries: counSel})) 
+        setForm({...form, countries: counSel}) 
+        console.log(form.countries) 
      }
 
+     const submitHandler=async(e)=>{ //alert('click')
+        
+        e.preventDefault();
+        setMensaje('');
+        setMensajeExito('');
+        console.log(form.countries.length+'sumit'+form.countries)
+        if(form.name!==''&& errors.name===''&& form.season!=='-1'&& form.countries.length!==0){ 
+          await  axios.post("http://localhost:3001/activities/",form)
+        .then(res=> {setMensajeExito('Actividad creada con exito.')
+            console.log('res  '+res)})
+        .catch(err=>{alert(err);
+                setMensaje('Actividad no se creo.')});
+       
+            }
+        else{
+            console.log(errors)
+            setMensaje('Informacion erronea.')
+    }
+              
+     }
+    //  const options = [
+    //     { value: 'chocolate', label: 'Chocolate' },
+    //     { value: 'strawberry', label: 'Strawberry' },
+    //     { value: 'vanilla', label: 'Vanilla' }
+    //   ]
+     
     return   (
            <form onSubmit={submitHandler} className={st.container}>
             <h1 className={st.title}>Creacion de actividades</h1>
             <div className={st.cont1}> 
                 <div className={st.cont2}>
                     <label  htmlFor='name' className={st.h}>Actividad:</label>
-                    <input type='text' value= {form.name} name='name' onChange={changeHandler} className={st.inpText}/>
+                    <input type='text' value= {form.name} 
+                    name='name' onChange={changeHandler} 
+                    className={st.inpText} placeholder='Digite el nombre...'/>
                 </div> 
                 <div  className={st.contError}> 
                     {errors.name && <span className={st.spErr}>{errors.name}</span>}
@@ -88,26 +136,26 @@ const Form=()=>{
                     {errors.season && <span className={st.spErr}>{errors.season}</span>}
                 </div>
             </div>
-            <div>
-                <div className={st.cont2}>
+            <div className={st.cont1}>
+                <div className={st.cont3}>
                     <label>Paises: </label>
+                   
                    <div> 
-                        {/* <input type='text' value={form.countries} name='countries' onChange={changeHandler} className={st.inpNum}/>  */}
-                        <select value={form.countries} name='countries' onChange={changeHandler} className={st.selCountries} multiple>
-                            <option value="1">Opción 1</option>
-                            <option value="2">Opción 2</option>
-                            <option value="3">Opción 3</option>
-                            <option value="11">Opción 11</option>
-                            <option value="21">Opción 21</option>
-                            <option value="31">Opción 31</option>
-                        </select>
+                        <Select 
+                            options={getOptions()} 
+                            isMulti                            
+                            onChange={selCounHandler}                           
+                            />
                     </div>
                 </div> 
                 <div className={st.contError}>  
                     {errors.countries && <span className={st.spErr}>{errors.countries}</span>}
                 </div>
             </div>
-            <button type="submit" className={st.botSubmit}> Enviar</button>
+            <button type="submit" className={st.botSubmit}> Crear</button>
+           
+           <p className={st.mensajes}>{mensaje}</p>
+           <p className={st.mensajesE}>{mensajeExito}</p>
            </form>
        )
     

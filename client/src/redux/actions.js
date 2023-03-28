@@ -3,9 +3,10 @@ import axios from "axios";
 
 export const GET_COUNTRIES_API = 'GET_COUNTRIES_API';
 export const GET_COUNTRIES = 'GET_COUNTRIES';
-export const GET_COUNTRIES_ID = 'GET_COUNTRIES_ID';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
-
+export const ORDER= 'ORDER';
+export const FILTER= 'FILTER';
+export const SEARCH_COUNTRY= 'SEARCH_COUNTRY';
 
 export const getCountriesApi=()=>{
     return async ()=>{
@@ -28,16 +29,7 @@ export const getCountries=()=>{
         );
     };
 };
-export const getCountriesId=(id)=>{
-    return async (dispatch)=>{
-        const Data= await axios.get(`http://localhost:3001/countries/${id}`);
-        const country=Data.data;
-        dispatch(
-            {type: GET_COUNTRIES_ID,
-             payload: country}
-        );
-    };
-};
+
 export const getActivites=()=>{
     return async (dispatch)=>{
         const Data= await axios.get('http://localhost:3001/activities/');
@@ -48,3 +40,27 @@ export const getActivites=()=>{
         );
     };
 };
+export const orderCards= (data)=>{
+    return{
+       type: ORDER,
+       payload: data
+    }
+}
+export const filterCards= (status)=>{
+    return{
+       type: FILTER,
+       payload: status
+    }
+}
+
+export const searchCountry= (name)=>{
+   
+    return async (dispatch)=>{
+        const Data= await axios.get(`http://localhost:3001/countries?name=${name}`);
+        const country=Data.data;
+        dispatch(
+            { type: SEARCH_COUNTRY,
+                payload: country}
+        );
+    };
+}

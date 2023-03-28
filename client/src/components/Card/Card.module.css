@@ -3,7 +3,11 @@
     margin: 10px;
     width: 350px;
     background-color:  #f2f2f2a4;
+    text-decoration: none;
     /* padding: 10px; */
+}
+.link{
+    text-decoration: none; 
 }
 .container h4{
     background-color: #000000a6;
@@ -11,9 +15,11 @@
     /* height: 30px; */
     font-size: 25px;
     padding: 5px;
+    text-decoration: none;
 }
 
 .container p{
     
     color: rgb(69, 114, 25);
+    text-decoration: none;
 }
