@@ -1,0 +1,25 @@
+.container{
+    border: 0px solid olivedrab
+}
+.seleccionados {
+    max-height: 100px;
+    width: 200px;
+    border: 1px solid rgb(101, 101, 99);
+    overflow : auto;
+    margin: auto;
+ 
+
+}
+.selCountriesAll{
+    
+    width: 200px;
+    border: 1px solid rgb(101, 101, 99);
+   
+ margin: auto;
+
+}
+.spErr{
+    color:rgb(245, 21, 21);
+    font-size: small;
+    
+}

@@ -1,8 +1,10 @@
 const { Activity } =require ('../db.js');
-const Country_Activities = require('../models/Country_Activities.js');
 
-const createActivity=async(name, difficulty, duration, season)=> 
-await Activity.create({name, difficulty, duration, season})
+
+const createActivity=async(name, difficulty, duration, season,countries)=> {
+let actNew=await Activity.create({name, difficulty, duration, season}) 
+actNew.addCountries(countries)
+}
 
 const getActivitiesAll=async()=>await Activity.findAll()
 

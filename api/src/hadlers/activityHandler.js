@@ -15,8 +15,8 @@ const createActivitiesHandler=async(req,res) => {
     const { name, difficulty, duration, season,countries}=req.body;
     console.log(countries)
     try {
-       const newActivity= await createActivity(name, difficulty, duration, season)
-       res.status(201).json(newActivity.id);
+       const newActivity= await createActivity(name, difficulty, duration, season, countries)
+       res.status(201).json('creada');
        //const respues= res.json(newActivity)'Actividad creada exitosamente'
       // console.log(newActivity)
        //buscar el id creado

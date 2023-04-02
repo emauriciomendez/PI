@@ -1,17 +1,13 @@
 import axios from 'axios';
 import { useState } from "react";
 import {validate} from './validation';
-import Select from 'react-select';
+//import Select from 'react-select';
 import st from './Form.module.css';
-import {useSelector} from 'react-redux'
+//import {useSelector} from 'react-redux'
+import SelectCountries from '../../components/SelectCountries/SelectCountries'
 
 const Form=()=>{
-//    const op=[
-//     {label:'pi',value:10},
-//     {label:'pi2',value:11},
-//     {label:'pi3',value:12},
-//     {label:'pi4',value:13},
-//    ]
+
     const [mensaje,setMensaje]=useState('');
     const [mensajeExito,setMensajeExito]=useState('');
     const [form,setForm]=useState({
@@ -29,7 +25,7 @@ const Form=()=>{
         season:'',
         countries:''
     })
-    const countries= useSelector(state=>state.countries);
+   // const countries= useSelector(state=>state.countries);
 
     const changeHandler=(e)=>{
         setMensaje('');
@@ -39,21 +35,21 @@ const Form=()=>{
         setErrors(validate({...form,[property]:value})) 
         setForm({...form,[property]:value})         
     }
-    function getOptions(){
-        return countries.map(c=>{
-            return{
-                value: c.id,
-                label: c.name
-            }
-        })
-      }
-     function selCounHandler(e){
-       // console.log(e)
-       const counSel= e.map(pais=> pais.value)
-       setErrors(validate({...form, countries: counSel})) 
-        setForm({...form, countries: counSel}) 
-        console.log(form.countries) 
-     }
+    // function getOptions(){
+    //     return countries.map(c=>{
+    //         return{
+    //             value: c.id,
+    //             label: c.name
+    //         }
+    //     })
+    //   }
+    //  function selCounHandler(e){
+    //    // console.log(e)
+    //    const counSel= e.map(country=> country.value)
+    //    setErrors(validate({...form, countries: counSel})) 
+    //     setForm({...form, countries: counSel}) 
+    //     console.log(form.countries) 
+    //  }
 
      const submitHandler=async(e)=>{ //alert('click')
         
@@ -61,29 +57,24 @@ const Form=()=>{
         setMensaje('');
         setMensajeExito('');
         console.log(form.countries.length+'sumit'+form.countries)
-        if(form.name!==''&& errors.name===''&& form.season!=='-1'&& form.countries.length!==0){ 
-          await  axios.post("http://localhost:3001/activities/",form)
-        .then(res=> {setMensajeExito('Actividad creada con exito.')
-            console.log('res  '+res)})
-        .catch(err=>{alert(err);
-                setMensaje('Actividad no se creo.')});
-       
+         if(form.name!==''&& errors.name===''&& form.season!=='-1'&& form.countries.length!==0){ 
+        //   await  axios.post("http://localhost:3001/activities/",form)
+        // .then(res=> {setMensajeExito('Actividad creada con exito.')
+        //     console.log('res  '+res)})
+        // .catch(err=>{alert(err+'aqui');
+        //         setMensaje('Actividad no se creo.')});       
             }
         else{
             console.log(errors)
             setMensaje('Informacion erronea.')
-    }
-              
+            }              
      }
-    //  const options = [
-    //     { value: 'chocolate', label: 'Chocolate' },
-    //     { value: 'strawberry', label: 'Strawberry' },
-    //     { value: 'vanilla', label: 'Vanilla' }
-    //   ]
+    
      
     return   (
            <form onSubmit={submitHandler} className={st.container}>
             <h1 className={st.title}>Creacion de actividades</h1>
+            
             <div className={st.cont1}> 
                 <div className={st.cont2}>
                     <label  htmlFor='name' className={st.h}>Actividad:</label>
@@ -140,13 +131,14 @@ const Form=()=>{
                 <div className={st.cont3}>
                     <label>Paises: </label>
                    
-                   <div> 
-                        <Select 
+                   <div>   <SelectCountries setForm={setForm} form={form} />
+                        {/* <Select 
                             options={getOptions()} 
                             isMulti                            
                             onChange={selCounHandler}                           
-                            />
+                            /> */}
                     </div>
+                  
                 </div> 
                 <div className={st.contError}>  
                     {errors.countries && <span className={st.spErr}>{errors.countries}</span>}

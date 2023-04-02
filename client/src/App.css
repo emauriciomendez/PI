@@ -21,7 +21,7 @@
 }
 .Cuerpo {
   min-height: 400px;
-  background: url('./components/imagenes/mapamundi-gris.png');
+  background: url('./imagenes/mapamundi-gris.png');
 }
 .App-logo {
   height: 40vmin;

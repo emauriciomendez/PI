@@ -24,10 +24,10 @@ return(
     <div className={st.containerPag}>
        
         <nav className={st.navPagination}> 
-        <div  onClick={goToPrev}
-                     className={  st.linkPagSig}   >
-                        anterior
-                    </div>
+        <button  onClick={goToPrev}
+                     className={  st.linkPagSig} disabled={pageCurrent===1 ? true :false}  >
+                        Anterior
+                    </button>
             { pageNumber.map ( noPage =>(
                 <>
 
@@ -38,10 +38,10 @@ return(
                )           
             ) 
         }
-       <div  onClick={goToNext}
-                     className={  st.linkPagSig}   >
+       <button  onClick={goToNext}
+                     className={  st.linkPagSig} disabled={pageCurrent>=cantPage ? true :false}  >
                         Siguiente
-                    </div>
+                    </button>
         </nav>
     </div>
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 //import { useDispatch } from 'react-redux'
 
 import { getCountriesApi } from '../../redux/actions.js';
+import st from './Landing.module.css'
 
 
 
@@ -22,6 +23,8 @@ const Landing=()=>{
                <h1>Bienvenidos</h1>
                <button onClick={goToHome}  > Home</button>
                <h3>en Landing</h3>
+               <div className={st.mundo}></div>
+             <img src='../../imagenes/mundo2.png' alt='mundo'  width="400" height="400"></img>
            </>
        )
     

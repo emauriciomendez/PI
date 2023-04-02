@@ -28,9 +28,9 @@ export function validate(form){
         }else
    { errors.season=''}
 
-   if(form.countries.length===0){errors.countries='Se debe seleccionar una opcion.'
-        }else
-    { errors.countries=''}
+//    if(form.countries.length===0){errors.countries='Se debe seleccionar una opcion.'
+//         }else
+//     { errors.countries=''}
 
 return errors;
 }
