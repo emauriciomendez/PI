@@ -1,9 +1,9 @@
-import {useSelector}  from 'react-redux';
+//import {useSelector}  from 'react-redux';
 import st from './Paginacion.module.css'
 
 
 const Paginacion=({ totalCountries, countriesPerPage , pageCurrent, setPageCurrent})=>{
-    const countries= useSelector(state=>state.countriesView)
+   // const countries= useSelector(state=>state.countriesView)
 //    console.log(pageCurrent+' pcurrent');
 let pageNumber=[];
 const cantPage=Math.ceil(totalCountries / countriesPerPage);
@@ -29,12 +29,12 @@ return(
                         Anterior
                     </button>
             { pageNumber.map ( noPage =>(
-                <>
+                
 
                     <div  onClick={()=>goToPage(noPage)}
                      className={  (noPage===pageCurrent ? st.isCurrent : st.linkPagination)}    key={noPage}>
                         {noPage}
-                    </div></>
+                    </div>
                )           
             ) 
         }

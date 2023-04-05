@@ -5,7 +5,7 @@ import Paginacion from '../Paginacion/Paginacion.jsx';
 import { useState } from 'react';
 const CardsContainer=()=>{
     const countries= useSelector(state=>state.countriesView);
-    const [countriesPerPage,setCountriesPerPage]=useState(10);
+    const countriesPerPage=10;
     const [pageCurrent,setPageCurrent]=useState(1);
     let totalCountries=countries.length;
     let indInicial=(pageCurrent-1)*countriesPerPage;
@@ -26,7 +26,7 @@ return(
          subregion={cont.subregion}
          area={cont.area}
         population={cont.population}
-        
+        key={cont.id}
         />
         }).slice(indInicial,indFinal)
         } 

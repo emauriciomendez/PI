@@ -5,16 +5,19 @@ import style from './Detail.module.css'
    
 const Detail = ()=>{
     const { id } = useParams();  
-    
+   // alert(id)
     const [country, setCountry] = React.useState({});  
- 
+    let act=country.activities;
+    // act.push({name:'kkkk'})
+    console.log('act ' ,Array.isArray(act) , act)
+
     React.useEffect(() => {
          fetch(`http://localhost:3001/countries/${id}` )
            .then((response) => response.json())
            .then((char) => {
-            // console.log(char)
-             if (char.name) {
-                setCountry(char);
+            
+             if (char.length>=1) {
+                setCountry(char[0]);
              } else {
                window.alert("No hay un pais con ese ID ");
              }
@@ -32,7 +35,7 @@ const Detail = ()=>{
   function format(num)  {    
       if(!isNaN(num)){
         num = num.toString().split("").reverse().join("").replace(/(?=\d*\.?)(\d{3})/g,'$1.');
-        num = num.split("").reverse().join("").replace(/^[\.]/, "");
+        num = num.split("").reverse().join("").replace(/^[.]/, "");
         return num;      
       }  
     }
@@ -51,8 +54,10 @@ return(
             <p><strong>Región: </strong>{country.subregion}</p>
             <p><strong>Area:</strong> {format(country.area)} km<sup>2</sup></p>
             <p><strong>Poblacion: </strong>{format(country.population)}  habitantes</p></div>
-            
-         
+            {/* {country.activities.map(ele=>(<p>{ele.name}</p>))} */}
+            {/* {console.log(country.activities.name)} */}
+            {/* <p>{country.activities[0].name}</p> */}
+         <textarea>{act}</textarea>
         </div>
         <button onClick={backToHome} className={style.btn}> Volver</button>
     </div>

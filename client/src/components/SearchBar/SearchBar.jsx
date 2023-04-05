@@ -35,7 +35,7 @@ useEffect(()=>{
                   <div className={s.divS}>
                      <input   className={s.inp} 
                               type='search' 
-                              placeHolder='Nombre...'
+                              placeholder='Nombre...'
                               onChange={(e)=>cambiosInput(e)}
                               value={cardABuscar}
                               ref={inputB}/>

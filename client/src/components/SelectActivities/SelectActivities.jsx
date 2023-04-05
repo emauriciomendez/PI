@@ -16,7 +16,7 @@ const SelectActivities=()=>{
                 {
                 activ.map(act=>{ 
                     return( 
-                        <option value={act.id}> {act.name} </option>
+                        <option value={act.id} key={act.id}> {act.name} </option>
                         )
                 })
                 }          

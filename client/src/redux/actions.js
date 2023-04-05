@@ -23,6 +23,8 @@ export const getCountries=()=>{
     return async (dispatch)=>{
         const Data= await axios.get('http://localhost:3001/countries/');
         const countries=Data.data;
+        // console.log('countries en actions')
+        // console.log(countries)
         dispatch(
             {type: GET_COUNTRIES,
              payload: countries}

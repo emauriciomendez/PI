@@ -40,6 +40,7 @@ const rootReducer=(state=initialState, action)=>{
                                 }
                             })
                         }
+                        console.log(orderChar)
                        return{
                            ...state,
                            countriesView:[...orderChar] 

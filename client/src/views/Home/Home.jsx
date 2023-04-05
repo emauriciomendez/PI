@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import CardsContainer from '../../components/CardsContainer/CardsContainer.jsx'
-import { getCountries , orderCards, filterCards} from '../../redux/actions.js';
+import { getCountries , orderCards, filterCards,getActivites} from '../../redux/actions.js';
 import style from './Home.module.css'
 import SelectActivities from '../../components/SelectActivities/SelectActivities'
 
@@ -10,9 +10,10 @@ const Home=()=>{
 const [orderType,setOrderType]=useState({direccion:'ascedente', criterio:'alfabetico'})
 
 const dispatch= useDispatch();
-
+// let pageActual=1;
 useEffect(()=>{
     dispatch(getCountries())
+    dispatch(getActivites())
 },[]);
 
 function handleOrderDir(e){
@@ -37,14 +38,12 @@ function handleOrderDir(e){
             <h1 className={style.title}>Home</h1>
             <div className={style.contOrderFilter}>
             <div className={style.contOrderFilter2}>
-                <h3>Orden</h3>
-                
+                <h3>Orden</h3>                
                <div>
                     <label htmlFor='sort1'><input type='radio'name='sort' onChange={handleOrderCrit} value="alfabetico" id='sort1' checked={orderType.criterio === "alfabetico"}/>Alfabeticamente</label>
                     <label htmlFor='sort2'><input type='radio'name='sort' onChange={handleOrderCrit} value="habitantes" id='sort2' checked={orderType.criterio === "habitantes"}/>Habitantes</label>
                 </div> 
-               
-           
+                          
                 <div>  <select name ='order' onChange={handleOrderDir} className={style.sel}>
                             <option value="ascendente" select>Ascendente</option>
                             <option value="descendente">Descendente</option>

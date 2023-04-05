@@ -1,25 +1,32 @@
 .container{
-    border: 0px solid olivedrab
+    border: 0px solid olivedrab;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
 }
 .seleccionados {
     max-height: 100px;
+    min-height: 60px;
     width: 200px;
-    border: 1px solid rgb(101, 101, 99);
+    border: 1px solid rgb(180, 180, 178);
     overflow : auto;
     margin: auto;
+    
  
 
 }
 .selCountriesAll{
     
     width: 200px;
-    border: 1px solid rgb(101, 101, 99);
-   
- margin: auto;
+    border: 1px solid rgb(152, 152, 152);
+    height: 100px;
+    margin: auto;
 
 }
 .spErr{
     color:rgb(245, 21, 21);
     font-size: small;
     
+}
+.flechas{
+    align-self: center;
 }

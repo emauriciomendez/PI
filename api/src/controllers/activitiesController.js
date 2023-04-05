@@ -6,8 +6,11 @@ let actNew=await Activity.create({name, difficulty, duration, season})
 actNew.addCountries(countries)
 }
 
-const getActivitiesAll=async()=>await Activity.findAll()
+const getActivitiesAll=async()=>await Activity.findAll(
+    // {include: Countries
+    // }
+)
 
-const createCountryActivity=async(countryId,activityId)=> await Country_Activities.create(countryId,activityId)
+//const createCountryActivity=async(countryId,activityId)=> await Country_Activities.create(countryId,activityId)
 
-module.exports= {createActivity, getActivitiesAll,createCountryActivity};
+module.exports= {createActivity, getActivitiesAll};

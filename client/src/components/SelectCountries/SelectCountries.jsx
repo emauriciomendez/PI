@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import {  useSelector} from 'react-redux'
+import {  useSelector,useDispatch} from 'react-redux'
 import st from './SelectCountries.module.css'
+import { getCountries } from '../../redux/actions'
 
 
 
@@ -12,9 +13,10 @@ const SelectCountries=({setForm, form})=>{
     const [ countView,setCountView]= useState([])
     // let nomCountSel=[]
     const countriesAll= useSelector(state=>state.countries)
-  
+    const dispatch= useDispatch();
+    
     useEffect(()=>{
-        
+         dispatch(getCountries()) 
         setCountView(countriesAll)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
@@ -51,21 +53,17 @@ const SelectCountries=({setForm, form})=>{
 
 return(
     <div className={st.container}>
-
-        {/* <p >Paises:</p> */}
-
-
-            <select onChange={handlerSelectCoutry} multiple value={countSelect} className={st.selCountriesAll}>
+        <select onChange={handlerSelectCoutry} multiple value={countSelect} className={st.selCountriesAll}>
                 {countView.map( count=>(
                     <option value={count.id} key={count.id}>{count.name}</option>
                 ))
                 }
         </select>
-<p>
-    <div className={st.seleccionados}>
-        {nomCountSel.length>0 ? nomCountSel.map(ele=>{return(<p>{ele}</p>)}):<p className={st.spErr}>Seleccione los Paises</p>} 
-    </div>
-  </p>
+        <span className={st.flechas}>▷▷▷</span>
+        <div className={st.seleccionados}> 
+            {nomCountSel.length>0 ? nomCountSel.map(ele=>{return(<p>{ele}</p>)}):<p className={st.spErr}>  Seleccione los Paises</p>} 
+        </div>
+        
     </div>
 
 )

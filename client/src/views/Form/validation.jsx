@@ -5,7 +5,7 @@ export function validate(form){
         errors.name='';
         }else{
         errors.name='Hay un error en el Nombre. Digite solo letras'; 
-        if(form.name==='')errors.name='Nombre  vacio 2';
+        if(form.name==='')errors.name='Nombre  vacio ';
         }
    
 

@@ -16,7 +16,8 @@ const router = Router();
 //      });
 
 //router.use('/',countriesRoutersApi)  ; 
-router.get('/',getCountriesApiHandler)
+ console.log('iiiu');
+router.get('/', getCountriesApiHandler );
 router.use('/countries',countriesRouters)  ;   
 
 router.use('/activities',activitiesRouters)
