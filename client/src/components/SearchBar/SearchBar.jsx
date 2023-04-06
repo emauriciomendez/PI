@@ -20,7 +20,7 @@ useEffect(()=>{
 
          function enviarInput(e) {
             e.preventDefault();
-           console.log(cardABuscar);
+         //  console.log(cardABuscar);
            // onSearch(cardABuscar);
             dispatch(searchCountry(cardABuscar))
             setCardABuscar('');
@@ -35,7 +35,7 @@ useEffect(()=>{
                   <div className={s.divS}>
                      <input   className={s.inp} 
                               type='search' 
-                              placeholder='Nombre...'
+                              placeholder='  Nombre...'
                               onChange={(e)=>cambiosInput(e)}
                               value={cardABuscar}
                               ref={inputB}/>

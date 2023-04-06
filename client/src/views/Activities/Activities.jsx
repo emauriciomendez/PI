@@ -10,11 +10,12 @@ const Activities=()=>{
     useEffect(()=>{
         dispatch(getActivites())
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
  return   (
         <>
             <h1>Actividades</h1>
-            {console.log(activities)}
+            {/* {console.log(activities)} */}
             <table>
                 <thead>
                     <tr>
@@ -27,16 +28,14 @@ const Activities=()=>{
                     </tr>
                 </thead>
                 <tbody>
-            { activities.map(act=> {
+            { activities.map((act,index)=> {
             return (
-            <tr>  
-                <td>{act.id}</td>
-                <td>{act.name}</td>
+            <tr key={act.id}>  
+                <td>{index+1}</td>
+                <td>{ act.name.substr(0,1).toUpperCase() + act.name.substr(1)}</td>
                 <td>{act.difficulty}</td>
                 <td> {act.duration}</td>
                 <td> {act.season}</td>
-                  
-           
             </tr>)
             }) 
            

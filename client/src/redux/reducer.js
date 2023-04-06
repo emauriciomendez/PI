@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
-import { GET_COUNTRIES , GET_ACTIVITIES, ORDER , FILTER, SEARCH_COUNTRY} from './actions'
+
+
+import { GET_COUNTRIES , GET_ACTIVITIES, ORDER , FILTER_CONTI, SEARCH_COUNTRY,FILTER_ACTIV} from './actions'
 const initialState={
     countries:[],
     activities:[],
@@ -40,12 +41,12 @@ const rootReducer=(state=initialState, action)=>{
                                 }
                             })
                         }
-                        console.log(orderChar)
+                        //console.log(orderChar)
                        return{
                            ...state,
                            countriesView:[...orderChar] 
                        }
-        case   FILTER:
+        case   FILTER_CONTI:
                         // console.log(state.allCharacters )
                         if(action.payload==='All'){
                             return{
@@ -59,8 +60,19 @@ const rootReducer=(state=initialState, action)=>{
                                  countriesView:[...filteredChar] 
                              }
                         }
+
+        case FILTER_ACTIV:
+            
+                if (action.payload.length===0)alert('No se encontro el pais Buscado');
+                //  
+                return{ ...state , countriesView: action.payload};
+            
         case SEARCH_COUNTRY:
-            return{ ...state , countriesView: action.payload};
+             
+            if (action.payload.length===0)alert('No se encontro el pais Buscado');
+              //  console.log(action.payload)
+              return{ ...state , countriesView: action.payload};
+        
                          
         default:
             return {...state};

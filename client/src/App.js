@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-     <div className='title'><h1 >Henry Countries </h1></div> 
+     <div className='title'><h1 > Countries of the World </h1></div> 
       { location.pathname!=='/'&&<NavBar/>}
       <div className="Cuerpo">
         <Route exact path='/' component={Landing}/>         

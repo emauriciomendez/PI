@@ -6,12 +6,12 @@ import { getCountries } from '../../redux/actions'
 
 
 const SelectCountries=({setForm, form})=>{
+
     const [ countSelect,setCountSelect]= useState([]);
-    const [ nomCountSel,setNomCountSel]= useState([])
-  
+    const [ nomCountSel,setNomCountSel]= useState([]);  
   
     const [ countView,setCountView]= useState([])
-    // let nomCountSel=[]
+   
     const countriesAll= useSelector(state=>state.countries)
     const dispatch= useDispatch();
     
@@ -20,11 +20,7 @@ const SelectCountries=({setForm, form})=>{
         setCountView(countriesAll)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
-    // useEffect(()=>{
-        
-    //     countSelect1.map((c,index)=>
-    //     <input type="text" value={c} key={index}/>)
-    // },[countSelect1]);
+   
 
   const  handlerSelectCoutry=(e)=>{
     //console.log(e);
@@ -41,8 +37,8 @@ const SelectCountries=({setForm, form})=>{
     setCountSelect(selects)
     setNomCountSel(nomSel)
     setForm({...form,countries:selects})  
-     console.log(selects);
-     console.log(nomCountSel);
+    //  console.log(selects);
+    //  console.log(nomCountSel);
   }
  
  //  const verContrie=()=>countSelect.map(c=>c.name)

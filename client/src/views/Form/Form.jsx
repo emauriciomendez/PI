@@ -130,12 +130,9 @@ const Form=()=>{
                 <div className={st.cont3}>
                     <label>Paises: </label>
                    
-                   <div>   <SelectCountries setForm={setForm} form={form} />
-                        {/* <Select 
-                            options={getOptions()} 
-                            isMulti                            
-                            onChange={selCounHandler}                           
-                            /> */}
+                   <div>   
+                    <SelectCountries setForm={setForm} form={form} />
+                      
                     </div>
                   
                 </div> 
