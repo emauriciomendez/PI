@@ -15,7 +15,7 @@ const getCountriesApi= async()=>{
                 const capital= Array.isArray(country.capital)? country.capital[0]:country.capital
                 let c= { 
                         id:country.cca3,
-                        name: country.name.official,
+                        name: country.name.common,
                         capital,
                         region:country.region,
                         subregion:country.subregion,
