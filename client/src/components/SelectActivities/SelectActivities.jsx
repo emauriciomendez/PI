@@ -5,9 +5,9 @@ import { useSelector } from "react-redux"
 const SelectActivities= ({filter,setFilter})=>{
     
     const activ=useSelector(state=>state.activities);
-    console.log(activ)
+   // console.log(activ)
     const handlerFilterAct=(e)=>{
-        console.log(e.target.value, 'en select act',filter)
+       // console.log(e.target.value, 'en select act',filter)
         setFilter({...filter, opcion:e.target.value});
     }
     return( 

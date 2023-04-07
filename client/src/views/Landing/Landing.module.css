@@ -1,6 +1,6 @@
 .container{
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns:  2fr 3fr;
     
 }
 .leyenda{
@@ -8,10 +8,16 @@
     align-self: center;
 }
 .leyenda h1{
-    margin-bottom: 20px;
-    font-size: 45px;
+    /* margin-bottom: 20px; */
+    font-size: 57px;
     text-shadow: white 1px 1px 1px, rgb(68 70 65) 6px 6px 3px;
     color:rgb(10, 10, 10);
+}
+.leyenda h5{
+    font-size: 24px;
+    text-shadow: white 1px 1px 1px, rgb(68 70 65) 2px 2px 3px;
+    color:rgb(32 65 118);
+    margin: 20px;
 }
 .bton{
     padding: 5px;
@@ -67,5 +73,5 @@
     width: 300px;
     height: 305px;
     background: url('../../imagenes/mundo6.png');
-    margin: 30px;
+    margin: 60px auto;
 }

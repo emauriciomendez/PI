@@ -19,16 +19,13 @@ const Landing=()=>{
                 <div className={st.mundo}></div>
                 <div className={st.leyenda}>
                     <h1>Bienvenidos</h1>
-                    <p>Aqui podras conocer todos los paises del mundo</p>
+                    <h5>Aquí podras conocer todos los paises del mundo</h5>
                     <button  className={st.bton} onClick={goToHome}  >
                     <div className={st.icon}>▷▷  ▷</div>
                       <span className={st.span}>Empecemos</span> </button>
               
                 </div>
-                {/* <h3>en Landing</h3> */}
-              
-             {/* <img src='../../imagenes/mundo2.png' alt='mundo'  width="400" height="400"/> */}
-           </div>
+                </div>
        )
     
    }

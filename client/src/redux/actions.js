@@ -7,13 +7,12 @@ export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const ORDER= 'ORDER';
 export const FILTER_CONTI= 'FILTER_CONTI';
 export const FILTER_ACTIV= 'FILTER_ACTIV';
-
-
 export const SEARCH_COUNTRY= 'SEARCH_COUNTRY';
 
 export const getCountriesApi=()=>{
     return async ()=>{
        // const apiData= 
+       console.log('actions')
         await axios.get('http://localhost:3001/');
        // const countriesApi=apiData.data;
         // dispatch(

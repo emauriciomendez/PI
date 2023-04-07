@@ -40,7 +40,7 @@ useEffect(()=>{
                               value={cardABuscar}
                               ref={inputB}/>
                      <input   type='submit'   
-                              value='Aceptar' 
+                              value='Buscar' 
                               className={s.boton} />
                      {/* <button     
                               onClick={logout}

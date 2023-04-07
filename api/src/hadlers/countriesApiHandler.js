@@ -5,7 +5,7 @@ const getCountriesApiHandler = async(req,res)=>{
     try {      
         const allContriesApi= await getCountriesApi();       
         res.status(200).json(allContriesApi);    
-        console.log(allContriesApi)    
+       // console.log(allContriesApi)    
     } catch (error) {
         res.status(400).json({error: error.message});
     }   

@@ -67,14 +67,16 @@ return(
                       <th>Temporada</th>
                     </tr>
               </thead>
-              {act.map(ele=>(
-                  <tr>
+              <tbody>
+              {act.map((ele,index)=>(
+                  <tr key={index}>
                     <td>{ ele.name.substr(0,1).toUpperCase() + ele.name.substr(1)}</td>
                     <td>{ele.difficulty}</td>
                     <td>{ele.duration}</td>
                     <td>{ele.season}</td>
                   </tr>
                 ))} 
+                </tbody>
                 </table>}
           </div>
             
