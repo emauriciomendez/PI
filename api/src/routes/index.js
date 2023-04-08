@@ -2,7 +2,7 @@ const { Router } = require('express');
 //const countriesRoutersApi = require('./countriesRouterApi.js');
 const activitiesRouters = require('./activitiesRouter.js');
 const countriesRouters = require('./countriesRouter.js');
-const getCountriesApiHandler = require('../hadlers/countriesApiHandler.js');
+const {getCountriesApiHandler} = require('../hadlers/countriesApiHandler.js');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -16,8 +16,8 @@ const router = Router();
 //      });
 
 //router.use('/',countriesRoutersApi)  ; 
-
-router.get('/', getCountriesApiHandler );
+console.log('index ruotes')
+router.get('/',getCountriesApiHandler );
 router.use('/countries',countriesRouters)  ;   
 
 router.use('/activities',activitiesRouters)

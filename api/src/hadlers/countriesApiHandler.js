@@ -1,7 +1,7 @@
 const { getCountriesApi } =require('../controllers/countriesController.js');
 
 const getCountriesApiHandler = async(req,res)=>{  
-     console.log('en handler') 
+    // console.log('en handler f') 
     try {      
         const allContriesApi= await getCountriesApi();       
         res.status(200).json(allContriesApi);    
@@ -10,4 +10,4 @@ const getCountriesApiHandler = async(req,res)=>{
         res.status(400).json({error: error.message});
     }   
 }
-module.exports = getCountriesApiHandler ;
+module.exports = {getCountriesApiHandler} ;

@@ -10,7 +10,7 @@ const Home=()=>{
         const [orderType,setOrderType]=useState({direccion:'ascedente', criterio:'alfabetico'})
         const [filter,setFilter]=useState({filtro:'Continentes', opcion:'All'})
         const dispatch= useDispatch();
-        // let pageActual=1;
+        
         useEffect(()=>{
             dispatch(getCountries())
             dispatch(getActivites())
@@ -53,7 +53,7 @@ const Home=()=>{
                 dispatch(filterCardsAct(filter.opcion))
                 console.log(filter, 'en activid dispahct')
             }
-
+          
         }
         function clickOrder(e){
             console.log(orderType)

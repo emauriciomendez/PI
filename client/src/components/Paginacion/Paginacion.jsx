@@ -10,6 +10,12 @@ const cantPage=Math.ceil(totalItems / itemsPerPage);
 for(let i=1; i<=cantPage; i++){
     pageNumber.push(i);
 }
+const goToFirts=()=>{
+    setPageCurrent(1)
+}
+const goToLast=()=>{
+    setPageCurrent(cantPage)
+}
 const goToPage=(n)=>{
     setPageCurrent(n)
 }
@@ -24,23 +30,33 @@ return(
     <div className={st.containerPag}>
        
         <nav className={st.navPagination}> 
+            <button  onClick={goToFirts}
+                     className={  st.linkPagSig} disabled={pageCurrent===1 ? true :false}  >
+                        Primero
+                    </button>
             <button  onClick={goToPrev}
                      className={  st.linkPagSig} disabled={pageCurrent===1 ? true :false}  >
                         Anterior
-                    </button>
+            </button>
 
-            { pageNumber.map ( noPage =>( 
-                    <div  onClick={()=>goToPage(noPage)}
+            { pageNumber.map ( noPage =>
+                    ( ( noPage <=(pageCurrent+3)&& noPage >=(pageCurrent-3))?
+                        <div  onClick={()=>goToPage(noPage)}
                      className={  (noPage===pageCurrent ? st.isCurrent : st.linkPagination)}    key={noPage}>
                         {noPage}
-                    </div>
-                    )           
+                    </div>:( noPage ===(pageCurrent+4))? <span>▷▷</span>:( noPage ===(pageCurrent-4))? <span>◁◁</span>:''
+                    )
+                               
                 ) 
             }
             <button  onClick={goToNext}
                      className={  st.linkPagSig} disabled={pageCurrent>=cantPage ? true :false}  >
                         Siguiente
-                    </button>
+            </button>
+            <button  onClick={goToLast}
+                     className={  st.linkPagSig} disabled={pageCurrent>=cantPage ? true :false}  >
+                        Ultimo
+            </button>
         </nav>
     </div>
 

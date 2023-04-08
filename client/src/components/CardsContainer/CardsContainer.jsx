@@ -2,7 +2,7 @@ import Card from '../Card/Card.jsx';
 import style from './CardsContainer.module.css';
 import {useSelector}  from 'react-redux'
 import Paginacion from '../Paginacion/Paginacion.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const CardsContainer=()=>{
     const countries= useSelector(state=>state.countriesView);
     const itemsPerPage=10;
@@ -10,9 +10,18 @@ const CardsContainer=()=>{
     let totalItems=countries.length;
     let indInicial=(pageCurrent-1)*itemsPerPage;
     let indFinal= indInicial+itemsPerPage;
+    useEffect(()=>{
+        setPageCurrent(1)
+    },[countries])
 
 return(
     <>
+      <Paginacion 
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            pageCurrent={pageCurrent}
+            setPageCurrent={setPageCurrent}
+            />
     <div className={style.container}>
         {
         countries.map(cont=>{
@@ -32,12 +41,7 @@ return(
         } 
            
     </div> 
-        <Paginacion 
-            totalItems={totalItems}
-            itemsPerPage={itemsPerPage}
-            pageCurrent={pageCurrent}
-            setPageCurrent={setPageCurrent}
-            />
+      
     </>
 )
 }

@@ -23,7 +23,7 @@ function App() {
         <Route path="/activities" ><Activities/></Route>
         <Route path="/form" ><Form/></Route>
       </div>
-     <footer className='footer'>Create for Mauricio Méndez</footer>
+     <footer className='footer'>Created for Mauricio Méndez</footer>
     </div>
   );
 }

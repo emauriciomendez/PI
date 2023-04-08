@@ -3,7 +3,7 @@ const axios=require('axios');
 const { Op } = require("sequelize");
 
 const getCountriesApi= async()=>{
-    console.log('en controller country')
+    console.log('en controller country');
   const countriesAllBd= await Country.findAll()
     if(countriesAllBd.length===0){
             const countriesAll= await axios.get('https://restcountries.com/v3/all');
@@ -29,9 +29,12 @@ const getCountriesApi= async()=>{
             
         // console.log(allContriesApi);
             return allContriesApi;
-     }else{  return countriesAllBd}
+    //
+  }else{ console.log('bd con registros')
+     return countriesAllBd}
 }
 const getCountries= async()=>{
+    console.log('getcooo')
     const countriesAllBd= await Country.findAll({       
         include: Activity,      
          order: [['name', 'ASC']],
