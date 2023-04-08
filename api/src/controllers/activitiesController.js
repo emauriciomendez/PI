@@ -7,6 +7,7 @@ const createActivity=async(name, difficulty, duration, season,countries)=> {
 }
 
 const getActivitiesAll=async()=>await Activity.findAll(
+    {order: [['name', 'ASC']]}
     // {include: Countries
     // }
 )

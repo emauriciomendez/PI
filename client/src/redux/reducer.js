@@ -4,7 +4,8 @@ import { GET_COUNTRIES , GET_ACTIVITIES, ORDER , FILTER_CONTI, SEARCH_COUNTRY,FI
 const initialState={
     countries:[],
     activities:[],
-    countriesView:[]
+    countriesView:[],
+    pageCurrent:1
 };
 
 const rootReducer=(state=initialState, action)=>{

@@ -44,20 +44,20 @@ const Form=()=>{
         setMensajeExito('');
        // console.log(form.countries.length+'sumit'+form.countries)
          if(form.name!==''&& errors.name===''&& form.season!=='-1'&& form.countries.length!==0){ 
-          await  axios.post("http://localhost:3001/activities/",form)
-        .then(res=> {setMensajeExito('Actividad creada con exito.')
-            console.log('res  '+res);
-        setForm({
-                name:'',
-                difficulty:5,
-                duration:1,
-                season:'-1',
-                countries:[]
-        })
-        
-        })
-        .catch(err=>{alert(err+'aqui');
-                setMensaje('Actividad no se creo.')});       
+                await  axios.post("http://localhost:3001/activities/",form)
+                .then(res=> {setMensajeExito('Actividad creada con exito.')
+                    console.log('res  '+res);
+                setForm({
+                        name:'',
+                        difficulty:5,
+                        duration:1,
+                        season:'-1',
+                        countries:[]
+                })
+                //setNomCountSel([])
+                })
+                .catch(err=>{alert(err+'aqui');
+                        setMensaje('Actividad no se creo.')});       
             }
         else{
             console.log(errors)
@@ -131,7 +131,7 @@ const Form=()=>{
                     <label>Paises: </label>
                    
                    <div>   
-                    <SelectCountries setForm={setForm} form={form} />
+                    <SelectCountries setForm={setForm} form={form}  />
                       
                     </div>
                   

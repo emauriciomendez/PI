@@ -44,6 +44,10 @@
     color: rgb(8, 60, 8);
     background-color: rgb(92, 230, 112);
 }
+.divTable{
+    max-height: 120px;
+    overflow : auto;
+}
 .table{
     width: 90%;
     font-size: small

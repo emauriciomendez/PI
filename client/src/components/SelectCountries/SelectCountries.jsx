@@ -37,15 +37,10 @@ const SelectCountries=({setForm, form})=>{
     setCountSelect(selects)
     setNomCountSel(nomSel)
     setForm({...form,countries:selects})  
-    //  console.log(selects);
-    //  console.log(nomCountSel);
+    
   }
  
- //  const verContrie=()=>countSelect.map(c=>c.name)
-    // return(
-    //     countSelect.map(c=>c.name)
-    // )
-   //}
+ 
 
 return(
     <div className={st.container}>

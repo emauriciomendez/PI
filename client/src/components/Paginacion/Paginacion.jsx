@@ -2,11 +2,11 @@
 import st from './Paginacion.module.css'
 
 
-const Paginacion=({ totalCountries, countriesPerPage , pageCurrent, setPageCurrent})=>{
+const Paginacion=({ totalItems, itemsPerPage , pageCurrent, setPageCurrent})=>{
    // const countries= useSelector(state=>state.countriesView)
 //    console.log(pageCurrent+' pcurrent');
 let pageNumber=[];
-const cantPage=Math.ceil(totalCountries / countriesPerPage);
+const cantPage=Math.ceil(totalItems / itemsPerPage);
 for(let i=1; i<=cantPage; i++){
     pageNumber.push(i);
 }

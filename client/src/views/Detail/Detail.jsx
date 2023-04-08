@@ -58,7 +58,7 @@ return(
                      {  act.length===0 && 'Sin  registros asignados'}
             </p>
           
-            { act.length!==0 &&
+            { act.length!==0 && <div className={style.divTable}>
             <table className={style.table}>
             <thead> <tr>                    
                       <th>Nombre</th>
@@ -70,14 +70,15 @@ return(
               <tbody>
               {act.map((ele,index)=>(
                   <tr key={index}>
-                    <td>{ ele.name.substr(0,1).toUpperCase() + ele.name.substr(1)}</td>
+                    <td>{ ele.name.substr(0,1).toUpperCase() + ele.name.substr(1).toLowerCase()}</td>
                     <td>{ele.difficulty}</td>
                     <td>{ele.duration}</td>
                     <td>{ele.season}</td>
                   </tr>
                 ))} 
                 </tbody>
-                </table>}
+                </table>
+                </div>}
           </div>
             
            

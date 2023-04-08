@@ -5,11 +5,11 @@ import Paginacion from '../Paginacion/Paginacion.jsx';
 import { useState } from 'react';
 const CardsContainer=()=>{
     const countries= useSelector(state=>state.countriesView);
-    const countriesPerPage=10;
+    const itemsPerPage=10;
     const [pageCurrent,setPageCurrent]=useState(1);
-    let totalCountries=countries.length;
-    let indInicial=(pageCurrent-1)*countriesPerPage;
-    let indFinal= indInicial+countriesPerPage;
+    let totalItems=countries.length;
+    let indInicial=(pageCurrent-1)*itemsPerPage;
+    let indFinal= indInicial+itemsPerPage;
 
 return(
     <>
@@ -33,8 +33,8 @@ return(
            
     </div> 
         <Paginacion 
-            totalCountries={totalCountries}
-            countriesPerPage={countriesPerPage}
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
             pageCurrent={pageCurrent}
             setPageCurrent={setPageCurrent}
             />
