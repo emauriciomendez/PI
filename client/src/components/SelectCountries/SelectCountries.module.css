@@ -1,7 +1,7 @@
 .container{
     border: 0px solid olivedrab;
     display: grid;
-    grid-template-columns: 1fr 50px 1fr;
+    grid-template-columns: 1fr 150px 1fr;
 }
 .seleccionados {
     max-height: 100px;
@@ -10,16 +10,20 @@
     border: 1px solid rgb(180, 180, 178);
     overflow : auto;
     margin: auto;
+    box-shadow: 1px 1px 1px lightgray;
+    border-radius: 6px;
+}
     
  
 
-}
 .selCountriesAll{
     
     width: 200px;
     border: 1px solid rgb(152, 152, 152);
     height: 100px;
     margin: auto;
+    box-shadow: 1px 1px 1px lightgray;
+    border-radius: 6px;
 
 }
 .selCountriesAll option{

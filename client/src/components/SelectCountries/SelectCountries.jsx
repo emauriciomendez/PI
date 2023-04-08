@@ -20,7 +20,9 @@ const SelectCountries=({setForm, form})=>{
         setCountView(countriesAll)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
-   
+//     useEffect(()=>{
+//         setNomCountSel([]);
+//    },[form.countries]);
 
   const  handlerSelectCoutry=(e)=>{
     //console.log(e);
@@ -50,7 +52,11 @@ return(
                 ))
                 }
         </select>
-        <span className={st.flechas}>▷▷▷</span>
+        <div className={st.flechas}>                    
+                <p className={st.flechas}>Seleccionados</p>
+                <p className={st.flechas}>▷▷▷</p>
+        </div>
+        
         <div className={st.seleccionados}> 
             {nomCountSel.length>0 ? nomCountSel.map(ele=>{return(<p>{ele}</p>)}):<p className={st.spErr}>  Seleccione los Paises</p>} 
         </div>

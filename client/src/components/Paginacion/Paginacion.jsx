@@ -38,7 +38,7 @@ return(
                      className={  st.linkPagSig} disabled={pageCurrent===1 ? true :false}  >
                         Anterior
             </button>
-
+            <div className={st.divNoPaginas}>
             { pageNumber.map ( noPage =>
                     ( ( noPage <=(pageCurrent+3)&& noPage >=(pageCurrent-3))?
                         <div  onClick={()=>goToPage(noPage)}
@@ -49,6 +49,7 @@ return(
                                
                 ) 
             }
+            </div>
             <button  onClick={goToNext}
                      className={  st.linkPagSig} disabled={pageCurrent>=cantPage ? true :false}  >
                         Siguiente

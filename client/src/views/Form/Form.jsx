@@ -68,14 +68,14 @@ const Form=()=>{
      
     return   (
            <form onSubmit={submitHandler} className={st.container}>
-            <h1 className={st.title}>Creacion de actividades</h1>
+            <h1 className={st.title}>Creación de Actividades</h1>
             
             <div className={st.cont1}> 
                 <div className={st.cont2}>
-                    <label  htmlFor='name' className={st.textAct}>Actividad:</label>
+                    <label  htmlFor='name' className={st.textAct} >Actividad:</label>
                     <input type='text' value= {form.name} 
                     name='name' onChange={changeHandler} 
-                    className={st.textAct} placeHolder='Digite el nombre...'/>
+                    className={st.textAct} placeholder='Digite el nombre...'/>
                 </div> 
                 </div>
                 <div  className={st.contError}> 
@@ -86,10 +86,10 @@ const Form=()=>{
             <div className={st.cont2B}>
                 <div>
                     <div className={st.cont2}>
-                        <label>Dificultad:</label>
+                        <label  className={st.label}>Dificultad:</label>
                         <div>    
                             <input type='text' value={form.difficulty} name='difficulty' onChange={changeHandler} className={st.inpNum}/>
-                            <span>1-5.</span>
+                            <span> (De 1 a 5).</span>
                         </div> 
                     </div> 
                     <div></div>
@@ -99,10 +99,10 @@ const Form=()=>{
                 </div>
                 <div>
                     <div className={st.cont2}>
-                        <label>Duracion: </label>
+                        <label className={st.label}>Duración: </label>
                     <div> 
                             <input type='text' value={form.duration} name='duration' onChange={changeHandler} className={st.inpNum}/> 
-                            <span>horas.</span>
+                            <span> horas.</span>
                     </div>
                     </div> 
                     <div className={st.contError}>  
@@ -112,7 +112,7 @@ const Form=()=>{
             </div>
             <div>
                 <div className={st.cont2}>
-                    <label> Temporada:   </label>
+                    <label className={st.label}> Temporada:   </label>
                     <select value={form.season} name='season' onChange={changeHandler} className={st.inpSelCount}>
                         <option value='-1' >Seleccione...</option>
                         <option value="Verano" >Verano</option>
@@ -128,7 +128,7 @@ const Form=()=>{
             </div>
             <div className={st.contPaises}>
                 <div className={st.cont3}>
-                    <label>Paises: </label>
+                    <label className={st.label}>Países: </label>
                    
                    <div>   
                     <SelectCountries setForm={setForm} form={form}  />

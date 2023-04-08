@@ -5,8 +5,19 @@
     margin: 15px;
 }
 .navPagination{
-    /* border: 1px solid #3a5e14; */
+    border: 1px solid #bcbfba;
+    background-color: #f9f5f5c7;
     margin: auto;
+    max-width: max-content;
+    padding: 3px;
+    border-radius: 6px;
+}
+.divNoPaginas{
+    border: 1px solid #e3dfdf;
+    background: linear-gradient(181deg, #fbf8f88a, #6c6a6a78);
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 6px;
 }
 .linkPagination {
     display: inline-block;

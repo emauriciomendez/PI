@@ -19,10 +19,15 @@ const Activities=()=>{
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
  return   (
-        <>
+        <div className='container'>
             <h1 className='h1Title'>Actividades</h1>
-            {/* {console.log(activities)} */}
-            <table>
+            <Paginacion 
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            pageCurrent={pageCurrent}
+            setPageCurrent={setPageCurrent}
+            />
+            <table className='table'>
                 <thead>
                     <tr>
                     <th>No.</th>
@@ -47,13 +52,8 @@ const Activities=()=>{
            
             }  </tbody></table>
            
-        <Paginacion 
-            totalItems={totalItems}
-            itemsPerPage={itemsPerPage}
-            pageCurrent={pageCurrent}
-            setPageCurrent={setPageCurrent}
-            />
-        </>
+       
+        </div>
     )
  
 }

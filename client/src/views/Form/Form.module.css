@@ -66,11 +66,17 @@
 }
 .inpNum{
     width: 33px;
-    /* //border-bottom-color: rgba(255, 21, 0, 0.843); */
+    box-shadow: 1px 1px 1px lightgray;
+    margin-right: 5px;
 }
+    /* //border-bottom-color: rgba(255, 21, 0, 0.843); */
+
 .inpSelCount{
     max-height: 100px; 
+    box-shadow: 1px 1px 1px lightgray;
+    margin-right: 5px;
 }
+
 .cont2 div{
     display: flex;
 }
@@ -95,7 +101,7 @@
  .cont3{
     /* border: 1px solid rgb(210, 30, 156); */
     margin: auto;
-    width: 60%;
+    max-width: max-content;
  }
  .botSubmit{
     color: rgb(243, 250, 244);
@@ -109,5 +115,10 @@
 
  }
  .textAct{
-    font-size: 20px !important
+    font-size: 20px !important;
+    font-weight: 600;
+}
+
+.label{
+    font-weight: 600;  
 }
