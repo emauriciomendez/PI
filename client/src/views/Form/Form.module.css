@@ -53,12 +53,24 @@
     align-self: center;
     padding-right: 15px;
 }
-.cont2 input, .cont2 select {
+.cont2 input, .cont2 select{
     display: flex;
     justify-self: flex-start;
     /* padding-right: 15px; */
     font-size: 15px;  
     height: 30px;
+    border:1px solid #c7c9c9;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.cont3 select{
+    display: flex;
+    justify-self: flex-start;
+    /* padding-right: 15px; */
+    font-size: 15px;  
+    height: 30px;
+    width: 210px;
     border:1px solid #c7c9c9;
     background-color: white;
     border-radius: 5px;
@@ -121,4 +133,28 @@
 
 .label{
     font-weight: 600;  
+}
+
+.seleccionados {
+    max-height: 90px;
+    min-height: 30px;
+    width: 200px;
+    border: 1px solid rgb(180, 180, 178);
+    overflow : auto;
+    margin: auto;
+    box-shadow: 1px 1px 1px lightgray;
+    border-radius: 6px;
+    font-size: small;
+}
+.equis{
+    border: 1px solid lightgray;
+    margin: 2px 0;
+    background-color: white;
+    padding:  0 4px 2px;
+    cursor: pointer;
+}
+
+.equis:hover{
+    background-color: #6a6969;
+    color: white;
 }

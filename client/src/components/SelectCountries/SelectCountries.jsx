@@ -58,7 +58,7 @@ return(
         </div>
         
         <div className={st.seleccionados}> 
-            {nomCountSel.length>0 ? nomCountSel.map(ele=>{return(<p>{ele}</p>)}):<p className={st.spErr}>  Seleccione los Paises</p>} 
+            {nomCountSel.length>0 ? nomCountSel.map((ele,index)=>{return(<p key={index}>{ele}</p>)}):<p className={st.spErr}>  Seleccione los Paises</p>} 
         </div>
         
     </div>

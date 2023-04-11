@@ -1,9 +1,11 @@
 import axios from 'axios';
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import {validate} from './validation';
-//import Select from 'react-select';
+import {  useSelector, useDispatch} from 'react-redux'
+import { getCountries } from '../../redux/actions'
+
 import st from './Form.module.css';
-import SelectCountries from '../../components/SelectCountries/SelectCountries'
+////import SelectCountries from '../../components/SelectCountries/SelectCountries'
 
 
 const Form=()=>{
@@ -25,9 +27,22 @@ const Form=()=>{
         season:'',
         countries:''
     })
-   // const countries= useSelector(state=>state.countries);
+    const [countriesSel,setCountriesSel]=useState([])
+    let countriesAll= useSelector(state=>state.countries);
+    countriesAll=countriesAll.map(ele=>({id:ele.id, name:ele.name}))
+    const [countries,setCountries]=useState(countriesAll)
+
+//    const countriesAll= useSelector(state=>state.countries)
+    const dispatch= useDispatch();
+   
+   useEffect(()=>{
+        dispatch(getCountries()) 
+       
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[]);
    
     const changeHandler=(e)=>{
+
         setMensaje('');
         setMensajeExito('');
         const property= e.target.name;
@@ -35,9 +50,27 @@ const Form=()=>{
         setErrors(validate({...form,[property]:value})) 
         setForm({...form,[property]:value})         
     }
-   
 
-     const submitHandler=async(e)=>{ //alert('click')
+   const handlerSelectCountry=(e)=>{
+
+        let nomCountri=(e.target.options[e.target.options.selectedIndex].text)
+        let value=e.target.value
+        setForm({...form, countries : [ ...form.countries, value]})
+        setCountriesSel([...countriesSel, {value, name:nomCountri}])
+        setCountries(countries.filter(ele=>ele.id!==value))
+        console.log(form)
+   }
+
+    const borrarPais=(elem)=>{
+    //
+        const {value,name}=elem
+        // console.log(elem)
+        setCountriesSel(countriesSel.filter(ele=>ele.value!==value))
+        setForm({...form, countries :form.countries.filter(ele=>ele!==value)})
+        setCountries([...countries,{id:value, name}])
+    }
+
+    const submitHandler=async(e)=>{ 
         
         e.preventDefault();
         setMensaje('');
@@ -54,7 +87,9 @@ const Form=()=>{
                         season:'-1',
                         countries:[]
                 })
-                //setNomCountSel([])
+                setCountries(countriesAll);
+                setCountriesSel([])
+               
                 })
                 .catch(err=>{alert(err+'aqui');
                         setMensaje('Actividad no se creo.')});       
@@ -129,11 +164,26 @@ const Form=()=>{
             <div className={st.contPaises}>
                 <div className={st.cont3}>
                     <label className={st.label}>Países: </label>
+
+                    <select onChange={handlerSelectCountry}   className={st.selCountriesAll}>
+                            {countries.map( count=>(
+                                <option value={count.id} key={count.id}>{count.name}</option>
+                            ))
+                            }
+                    </select>
+                    <div className={st.seleccionados}> 
+                        {countriesSel.length>0 ? countriesSel.map(ele=>{
+                            return(<div key={ele.value} className={ st.cont2B}><span >{ele.name}</span>
+                                    <div className={ st.equis} onClick={()=>borrarPais(ele)} >✕</div>
+                                    </div>)}):
+                            <p className={st.spErr}>  Seleccione los Paises</p>} 
+                    </div>
+
                    
-                   <div>   
+                   {/* <div>   
                     <SelectCountries setForm={setForm} form={form}  />
                       
-                    </div>
+                    </div> */}
                   
                 </div> 
                 <div className={st.contError}>  
