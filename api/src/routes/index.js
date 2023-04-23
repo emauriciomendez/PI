@@ -16,8 +16,9 @@ const router = Router();
 //      });
 
 //router.use('/',countriesRoutersApi)  ; 
-console.log('index ruotes')
+//console.log('index ruotes')
 router.get('/',getCountriesApiHandler );
+
 router.use('/countries',countriesRouters)  ;   
 
 router.use('/activities',activitiesRouters)

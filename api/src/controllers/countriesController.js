@@ -3,11 +3,11 @@ const axios=require('axios');
 const { Op } = require("sequelize");
 
 const getCountriesApi= async()=>{
-    console.log('en controller country');
+  //  console.log('en controller country');
   const countriesAllBd= await Country.findAll()
     if(countriesAllBd.length===0){
             const countriesAll= await axios.get('https://restcountries.com/v3/all');
-            console.log(countriesAll.data.length, 'longitud')
+          //  console.log(countriesAll.data.length, 'longitud')
             let allContriesApi=[];
 
             for(let i=0;i<countriesAll.data.length;i++){
@@ -30,11 +30,11 @@ const getCountriesApi= async()=>{
         // console.log(allContriesApi);
             return allContriesApi;
     //
-  }else{ console.log('bd con registros')
+  }else{ //console.log('bd con registros')
      return countriesAllBd}
 }
 const getCountries= async()=>{
-    console.log('getcooo')
+   // console.log('getcountries bd')
     const countriesAllBd= await Country.findAll({       
         include: Activity,      
          order: [['name', 'ASC']],
@@ -45,7 +45,7 @@ const getCountries= async()=>{
 const getCountryForName= async(name)=>{
     const countryForName= await Country.findAll({
         where:{
-            name:{[Op.iLike]: '%'+name}},
+            name:{[Op.iLike]: '%'+name+'%'}},
         include: Activity
     })
   //  console.log(countryForName)

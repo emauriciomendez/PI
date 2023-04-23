@@ -5,6 +5,13 @@
                 -1px 1px 0px gray ;
     color:limegreen 
 }
+.reset{
+    color:rgb(8, 81, 8) 
+}
+.reset:hover{
+    cursor: pointer;
+    color: lime;
+}
 .contOrderFilter{
     display: grid;
     grid-template-columns: 1fr 1fr;

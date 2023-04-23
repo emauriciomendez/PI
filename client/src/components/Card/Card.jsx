@@ -19,6 +19,7 @@ return(
             <p>Capital: {props.capital}</p>
             <p>Continente: {props.region}</p>
             <p>Poblacion: {format(props.population)}  habitantes</p>  
+            <p>Area: {props.area}</p>
        
         </div>
     </Link>

@@ -9,6 +9,7 @@ const getCountriesHandler=async(req,res)=>{
             if(countryForName)
             {res.status(200).json(countryForName)}            
             else {
+                res.status(400).json({error: error.message});
                 alert ('No se encontro el pais')}
                 //'?????Esta ruta obtiene el detalle de un país específico por nombre '+name)}
         }

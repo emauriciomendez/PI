@@ -33,6 +33,12 @@ const Home=()=>{
              console.log(e.target.value, opt);
             setFilter({ filtro:e.target.value, opcion: opt});
         }
+       function onReset(){
+        console.log('reset')
+        //setFilter({filtro:'Continentes', opcion:'All'})
+        dispatch(filterCardsCont('All'))
+
+        }
         function handleFilterCont(e){
             // console.log(e.target.value)
             setFilter({...filter, opcion:e.target.value});
@@ -61,7 +67,8 @@ const Home=()=>{
         }
         return (
             <>
-                <h1 className={style.title}>Home</h1>
+                <h1 className={style.title} >Home</h1>
+                <div  className={style.reset} onClick={onReset}><h4>Reset</h4></div>
                 <div className={style.contOrderFilter}>
                 
                 <div className={style.contOrderFilter2}>
